@@ -13,7 +13,6 @@ A PySpark-based machine learning pipeline to classify air quality categories in 
 - [Project Structure](#project-structure)
 - [Directory and File Overview](#directory-and-file-overview)
 - [Contribution Guidelines](#contribution-guidelines)
-- [License](#license)
 - [Credits](#credits)
 - [Contact](#contact)
 - [Badges](#badges)
@@ -138,15 +137,21 @@ Please follow [PEP 8](https://pep8.org/) coding standards and include clear docu
 - [Apache Spark](https://spark.apache.org/), [PySpark](https://spark.apache.org/docs/latest/api/python/), and open-source contributors.
 - [KaggleHub](https://github.com/KaggleHub/kagglehub) for dataset management.
 
+- **Daksh Baweja** (2022UCA1810)
+- **Archit Jain** (2022UCA1865)
+- **Aditya Bhandari** (2022UCA1819)
+
+Special thanks to the open-source community and referenced research on gesture recognition and TinyML.
+
 ---
 
 ## Contact
 
 For questions, suggestions, or collaboration, please contact:
 
-- **Your Name**
-- **Email:** your.email@example.com
-- **GitHub:** [yourusername](https://github.com/yourusername)
+- Daksh Baweja: dakshbaweja.ug22@nsut.ac.in
+- Archit Jain: architjain.ug22@nsut.ac.in
+- Aditya Bhandari: adityabhandari.ug22@nsut.ac.in
 
 ---
 
