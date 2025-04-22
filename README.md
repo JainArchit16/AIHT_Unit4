@@ -15,7 +15,6 @@ A PySpark-based machine learning pipeline to classify air quality categories in 
 - [Contribution Guidelines](#contribution-guidelines)
 - [Credits](#credits)
 - [Contact](#contact)
-- [Badges](#badges)
 
 ---
 
@@ -152,12 +151,6 @@ For questions, suggestions, or collaboration, please contact:
 - Daksh Baweja: dakshbaweja.ug22@nsut.ac.in
 - Archit Jain: architjain.ug22@nsut.ac.in
 - Aditya Bhandari: adityabhandari.ug22@nsut.ac.in
-
----
-
-## Badges
-
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 ---
 
