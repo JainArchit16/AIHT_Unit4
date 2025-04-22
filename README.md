@@ -1,146 +1,150 @@
-# Visual Wake Word Detection
+# Air Quality Classification in Indian Cities with PySpark
 
-![Build Status](https://img.shields.io/badge/build-passing-brightgreen)
-![License: MIT](https://img.shields.io/badge/license-MIT-blue)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+
+A PySpark-based machine learning pipeline to classify air quality categories in Indian cities using the ["Air Quality Data in India" dataset](https://www.kaggle.com/datasets/rohanrao/air-quality-data-in-india?select=city_day.csv). The project demonstrates scalable data preprocessing, feature engineering, model training (Random Forest), evaluation, and visualization of results—all in a reproducible notebook format.
 
 ---
 
 ## Table of Contents
 
-- [Project Overview](#project-overview)
 - [Features](#features)
+- [Dataset](#dataset)
 - [Installation](#installation)
 - [Usage](#usage)
-- [Directory Structure](#directory-structure)
+- [Project Structure](#project-structure)
+- [Directory and File Overview](#directory-and-file-overview)
 - [Contribution Guidelines](#contribution-guidelines)
 - [License](#license)
 - [Credits](#credits)
 - [Contact](#contact)
-
----
-
-## Project Overview
-
-**Visual Wake Word Detection** is an inclusive, real-time gesture recognition system that enables individuals—especially those with vocal impairments—to control smart home devices using finger gestures. The project leverages lightweight deep learning models (MobileNetV2) optimized for deployment on edge devices via TensorFlow Lite, making smart environments accessible and intuitive for everyone.
+- [Badges](#badges)
 
 ---
 
 ## Features
 
-- **Gesture-Based Control:** Recognizes hand/finger gestures (0–5) for device interaction.
-- **Edge Deployment:** Uses TinyML and TensorFlow Lite for real-time inference on low-power devices.
-- **High Accuracy:** Achieves over 94% accuracy on test data.
-- **Non-Verbal Accessibility:** Designed for users with speech or mobility limitations.
-- **Portable & Scalable:** Easily extendable to healthcare, industrial, and smart home applications.
+- **Automated Data Download:** Fetches the latest air quality dataset from Kaggle.
+- **PySpark Integration:** Uses Spark for scalable data processing and machine learning.
+- **Data Cleaning & Feature Engineering:** Handles missing values, type conversions, and vectorization.
+- **Classification Pipeline:** Implements a Random Forest classifier to predict AQI buckets.
+- **Model Evaluation:** Reports accuracy, confusion matrix, and error metrics.
+- **Hyperparameter Tuning:** Utilizes cross-validation and grid search for optimal model selection.
+- **Visualization:** Plots confusion matrix for model diagnostics.
+- **Reproducibility:** All steps are contained within a single, annotated Jupyter notebook.
+
+---
+
+## Dataset
+
+- **Source:** ["Air Quality Data in India" by Rohan Rao on Kaggle](https://www.kaggle.com/datasets/rohanrao/air-quality-data-in-india?select=city_day.csv)
+- **File Used:** `city_day.csv`
+- This dataset contains daily air quality and pollutant measurements for major Indian cities.
 
 ---
 
 ## Installation
 
-1. **Clone the Repository**
+1. **Clone the Repository:**
 
 ```
-git clone https://github.com/yourusername/visual-wake-word-detection.git
-cd visual-wake-word-detection
+git clone https://github.com/yourusername/air-quality-pyspark.git
+cd air-quality-pyspark
 
 ```
 
-2. **Install Dependencies**
+2. **Install Dependencies:**
+
+- Python 3.7+
+- [PySpark](https://spark.apache.org/docs/latest/api/python/)
+- [findspark](https://github.com/minrk/findspark)
+- [kagglehub](https://github.com/KaggleHub/kagglehub)
+- [matplotlib](https://matplotlib.org/)
+- [pandas](https://pandas.pydata.org/)
+- [scikit-learn](https://scikit-learn.org/)
+
+Install via pip:
 
 ```
-pip install -r requirements.txt
+pip install pyspark findspark kagglehub matplotlib pandas scikit-learn
+
 ```
 
-_Key dependencies: TensorFlow, Keras, h5py, numpy, matplotlib, Pillow_
+3. **Kaggle API Setup:**
 
-3. **Prepare Dataset**
-
-- Place gesture image datasets in the `data/` directory as specified in the notebook.
-
-4. **Run the Notebook**
-
-- Launch `visual_wake_word_detection.ipynb` in Jupyter Notebook or compatible environment.
+- Place your `kaggle.json` in the appropriate location as per [Kaggle API instructions](https://github.com/KaggleHub/kagglehub).
 
 ---
 
 ## Usage
 
-### Training the Model
+Open and run the notebook:
 
 ```
-In visual_wake_word_detection.ipynb
-Load and preprocess data
-X_train, Y_train, X_test, Y_test, classes = load_dataset()
-
-Train the model
-history = model.fit(X_train, Y_train, epochs=50)
-
+jupyter notebook spark.ipynb
 ```
 
-### Model Conversion for Edge Deployment
+The notebook will:
 
-```
-import tensorflow as tf
-converter = tf.lite.TFLiteConverter.from_keras_model(model)
-tflite_model = converter.convert()
-with open("model.tflite", "wb") as f:
-f.write(tflite_model)
-```
+- Download the dataset from Kaggle.
+- Initialize Spark and load the data.
+- Clean and preprocess the data.
+- Build and train a Random Forest classifier.
+- Evaluate and visualize the results.
 
-### Running Inference
-
-interpreter = tf.lite.Interpreter(model_path="model.tflite")
-interpreter.allocate_tensors()
-
-Prepare input image as shown in the notebook
-Run inference and get predictions
+**Example:**  
+To run the pipeline, execute all cells in the notebook sequentially.  
+Key outputs include model accuracy, confusion matrix, and best hyperparameters found via cross-validation.
 
 ---
 
-## Directory Structure
+## Project Structure
 
 ```
-visual-wake-word-detection/
+air-quality-pyspark/
 │
-├── data/ # Gesture image datasets (HDF5 files)
-├── visual_wake_word_detection.ipynb # Main project notebook
-├── model.tflite # Exported TFLite model
-├── model_quantized.tflite # Quantized TFLite model
-├── requirements.txt # Python dependencies
+├── spark.ipynb # Main Jupyter notebook with the entire pipeline
 ├── README.md # Project documentation
-└── ... # Supporting scripts and assets
+├── LICENSE # Project license (MIT)
+└── requirements.txt # (Optional) List of Python dependencies
 ```
 
-_See the notebook for detailed code and methodology._
+---
+
+## Directory and File Overview
+
+- `spark.ipynb`: Main notebook containing the full PySpark pipeline, from data ingestion to evaluation and visualization.
+- `README.md`: This documentation file.
+- `LICENSE`: Project license.
+- `requirements.txt`: (Optional) List of Python dependencies.
 
 ---
 
 ## Contribution Guidelines
 
-We welcome contributions! To contribute:
+Contributions are welcome! To contribute:
 
 - Fork this repository.
 - Create a new branch (`git checkout -b feature/your-feature`).
-- Commit your changes and push to your fork.
-- Submit a pull request with a clear description.
+- Commit your changes (`git commit -am 'Add new feature'`).
+- Push to the branch (`git push origin feature/your-feature`).
+- Open a Pull Request.
 
-Please follow PEP8 style and add docstrings where appropriate.
+Please follow [PEP 8](https://pep8.org/) coding standards and include clear documentation/comments.
 
 ---
 
 ## License
 
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+This project is licensed under the [MIT License](LICENSE).
 
 ---
 
 ## Credits
 
-- **Daksh Baweja** (2022UCA1810)
-- **Archit Jain** (2022UCA1865)
-- **Aditya Bhandari** (2022UCA1819)
-
-Special thanks to the open-source community and referenced research on gesture recognition and TinyML.
+- [Rohan Rao](https://www.kaggle.com/rohanrao) for the [Air Quality Data in India dataset](https://www.kaggle.com/datasets/rohanrao/air-quality-data-in-india?select=city_day.csv).
+- [Apache Spark](https://spark.apache.org/), [PySpark](https://spark.apache.org/docs/latest/api/python/), and open-source contributors.
+- [KaggleHub](https://github.com/KaggleHub/kagglehub) for dataset management.
 
 ---
 
@@ -148,10 +152,22 @@ Special thanks to the open-source community and referenced research on gesture r
 
 For questions, suggestions, or collaboration, please contact:
 
-- Daksh Baweja: dakshbaweja.ug22@nsut.ac.in
-- Archit Jain: architjain.ug22@nsut.ac.in
-- Aditya Bhandari: adityabhandari.ug22@nsut.ac.in
+- **Your Name**
+- **Email:** your.email@example.com
+- **GitHub:** [yourusername](https://github.com/yourusername)
 
 ---
 
-> _“Making technology accessible, one gesture at a time.”_
+## Badges
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+
+---
+
+_Ready to scale air quality analytics with big data tools and open science!_
+
+---
+
+**Note:**  
+If you need to customize dataset paths, Spark configuration, or want to add new models, please refer to the code comments in `spark.ipynb`.  
+If any project-specific details (such as author name, email, or repository URL) need to be updated, please replace the placeholders above.
