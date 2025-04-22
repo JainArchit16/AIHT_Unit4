@@ -1,7 +1,5 @@
 # Air Quality Classification in Indian Cities with PySpark
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-
 A PySpark-based machine learning pipeline to classify air quality categories in Indian cities using the ["Air Quality Data in India" dataset](https://www.kaggle.com/datasets/rohanrao/air-quality-data-in-india?select=city_day.csv). The project demonstrates scalable data preprocessing, feature engineering, model training (Random Forest), evaluation, and visualization of results—all in a reproducible notebook format.
 
 ---
@@ -131,12 +129,6 @@ Contributions are welcome! To contribute:
 - Open a Pull Request.
 
 Please follow [PEP 8](https://pep8.org/) coding standards and include clear documentation/comments.
-
----
-
-## License
-
-This project is licensed under the [MIT License](LICENSE).
 
 ---
 
