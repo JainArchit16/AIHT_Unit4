@@ -102,7 +102,7 @@ air-quality-pyspark/
 ├── spark.ipynb # Main Jupyter notebook with the entire pipeline
 ├── README.md # Project documentation
 ├── LICENSE # Project license (MIT)
-└── requirements.txt # (Optional) List of Python dependencies
+└── requirements.txt #  List of Python dependencies
 ```
 
 ---
@@ -112,7 +112,7 @@ air-quality-pyspark/
 - `spark.ipynb`: Main notebook containing the full PySpark pipeline, from data ingestion to evaluation and visualization.
 - `README.md`: This documentation file.
 - `LICENSE`: Project license.
-- `requirements.txt`: (Optional) List of Python dependencies.
+- `requirements.txt`: List of Python dependencies.
 
 ---
 
@@ -157,7 +157,3 @@ For questions, suggestions, or collaboration, please contact:
 _Ready to scale air quality analytics with big data tools and open science!_
 
 ---
-
-**Note:**  
-If you need to customize dataset paths, Spark configuration, or want to add new models, please refer to the code comments in `spark.ipynb`.  
-If any project-specific details (such as author name, email, or repository URL) need to be updated, please replace the placeholders above.
